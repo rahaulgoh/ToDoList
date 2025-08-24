@@ -145,3 +145,22 @@ els.filters.addEventListener('click', (e) => {
         // 3_ Re-render with the new filter applied
     render();
 })
+
+els.clearCompleted.addEventListener('click', () => {
+    //remove all tasks where done == true
+    const before = tasks.length;
+    tasks = tasks.filter(t => !t.done);
+
+    // only redraw/save if something actually changed
+    if (tasks.length !== before) {
+        save?.();
+        render();
+        updateStats();
+        updateClearButton();
+    }
+})
+
+function updateClearButton() {
+    const hasCompleted = tasks.some(t => t.done);
+    els.clearCompleted.setAttribute('aria-disabled', String(!hasCompleted));
+}
