@@ -30,6 +30,7 @@
             <h2 id="tasks-title">Tasks</h2>
             <form id="new-task-form" autocomplete="off">
                 <label for="new-task-input" class="visually-hidden">Add a task</label>
+                <input id="new-task-input" name="title" type="text" placeholder="Add a new task..." required />
                 <button id="add-task" type="submit">Add</button>
             </form>
 
@@ -41,7 +42,7 @@
                 </div>
                 <button id="clear-completed" type="button">Clear Completed</button>
             </div>
-            <ul id="task-list" aria-live="polite" aria-label="Task List"></ul>
+            <ul id="task-list" aria-live="polite" aria-label="Task list"></ul>
 
             <div id="task-stats" aria-live="polite">
                 <span><strong id="tasks-remaining">0</strong> tasks remaining</span>
@@ -55,10 +56,10 @@
 
     <template id="task-item-template">
         <li class="task-item" data-id="">
-            <label clas = "task-main">
-                <input type = "checkbox" class = "task-toggle"/>
-                <span class = "task-title"></span>
-            </label> 
+            <label class="task-main">
+                <input type="checkbox" class="task-toggle"/>
+                <span class="task-title"></span>
+            </label>
             <div class="task-actions">
                 <button class="task-focus" type="button" aria-label="Edit task">Edit</button>
                 <button class="task-delete" type="button" aria-label="Delete task">Delete</button>
