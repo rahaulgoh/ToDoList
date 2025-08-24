@@ -131,3 +131,17 @@ function focusTask(t) {
     detail: { taskId: t.id, title: t.title }
   }));
 }
+
+els.filters.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter');
+    if (!btn) return; // clicked somewhere else
+        // 1) Update the active button styles
+    els.filters.querySelectorAll('.filter').forEach(b => {
+        b.classList.remove('active');
+    })
+    btn.classList.add('active');
+        // 2) Update the filter state
+    currentFilter = btn.dataset.filter; // 'all' | 'todo' | 'done'
+        // 3_ Re-render with the new filter applied
+    render();
+})
