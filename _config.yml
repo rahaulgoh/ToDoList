@@ -1,0 +1,36 @@
+# Jekyll configuration for GitHub Pages
+plugins:
+  - jekyll-relative-links
+
+# Disable Jekyll processing for plain HTML sites
+markdown: kramdown
+highlighter: rouge
+
+# Include all files (don't ignore based on Jekyll conventions)
+include:
+  - "*.html"
+  - "*.css" 
+  - "*.js"
+
+# Exclude unnecessary files
+exclude:
+  - "README.md"
+  - "*.md"
+
+# Set the source to the root directory
+source: .
+
+# Disable Jekyll's default CSS processing
+sass:
+  style: expanded
+  sass_dir: _sass
+  
+# Tell Jekyll this is a plain site
+permalink: none
+
+# Disable automatic .scss processing
+defaults:
+  - scope:
+      path: "*.css"
+    values:
+      layout: none
