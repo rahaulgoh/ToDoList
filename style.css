@@ -40,6 +40,16 @@ section{
 #timer{ font-size:clamp(42px,7vw,68px); font-weight:800; letter-spacing:1px; text-align:center; padding:10px 0 6px; }
 .timer-controls{ display:flex; gap:8px; justify-content:center; margin-top:8px; }
 
+/* Add hover effects for timer buttons */
+.timer-controls button {
+  transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+}
+.timer-controls button:hover {
+  background: color-mix(in srgb, var(--primary) 35%, var(--surface));
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
 /* Tasks */
 #tasks-title{ margin:0 0 8px; font-size:1rem; color:var(--subtle); }
 #new-task-form{ display:flex; gap:8px; align-items:center; margin-bottom:10px; }
@@ -49,15 +59,48 @@ section{
 }
 #new-task-input:focus{ border-color:var(--primary); box-shadow:0 0 0 3px var(--ring); outline:none; }
 
+/* Add button hover effect */
+#add-task {
+  transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+}
+#add-task:hover {
+  background: color-mix(in srgb, var(--primary) 35%, var(--surface));
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
 .task-controls{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin:8px 0 6px; }
 .filters{ display:flex; gap:8px; flex-wrap:wrap; }
 .filter{
   border:1px solid var(--muted); background:transparent; color:var(--text);
-  padding:8px 12px; border-radius:999px; cursor:pointer;
+  padding:8px 16px; border-radius:8px; cursor:pointer;
+  min-width: 70px; /* Standardized minimum width */
+  transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
 }
-.filter.active{ border-color:var(--primary); background: color-mix(in srgb, var(--primary) 18%, transparent); }
+.filter:hover {
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+.filter.active{ 
+  border-color:var(--primary); 
+  background: color-mix(in srgb, var(--primary) 25%, transparent);
+}
+.filter.active:hover {
+  background: color-mix(in srgb, var(--primary) 35%, transparent);
+}
 
 #clear-completed[aria-disabled="true"]{ opacity:.45; pointer-events:none; }
+
+/* Clear completed button hover effect */
+#clear-completed {
+  transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+}
+#clear-completed:hover:not([aria-disabled="true"]) {
+  background: color-mix(in srgb, var(--danger) 20%, transparent);
+  border-color: var(--danger);
+  transform: translateY(-1px);
+}
 
 #task-list{ list-style:none; margin:10px 0 8px; padding:0; }
 .task-item{
@@ -75,12 +118,28 @@ section{
 .task-actions{ display:flex; gap:8px; }
 .task-actions button{
   border:1px solid var(--muted); background:transparent; color:var(--text);
-  padding:6px 10px; border-radius:8px; cursor:pointer;
+  padding:6px 12px; border-radius:8px; cursor:pointer;
+  min-width: 60px; /* Standardized minimum width */
+  transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
 }
-.task-actions .task-delete:hover{ border-color:var(--danger); background: color-mix(in srgb, var(--danger) 20%, transparent); }
+.task-actions button:hover {
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+.task-actions .task-delete:hover{ 
+  border-color:var(--danger); 
+  background: color-mix(in srgb, var(--danger) 20%, transparent); 
+}
 
 #task-stats{ color:var(--subtle); font-size:.95rem; margin-top:6px; text-align:right; }
 
 button{ font:inherit; border:1px solid var(--muted); background: color-mix(in srgb, var(--primary) 22%, var(--surface));
-  color:var(--text); padding:10px 14px; border-radius:10px; cursor:pointer; }
+  color:var(--text); padding:10px 14px; border-radius:8px; cursor:pointer; 
+  transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease; }
+button:hover {
+  background: color-mix(in srgb, var(--primary) 35%, var(--surface));
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
 button:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--ring); border-color:var(--primary); }
